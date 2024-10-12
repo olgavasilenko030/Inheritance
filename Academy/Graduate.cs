@@ -34,5 +34,10 @@ namespace Academy
 		{
 			return base.ToString() + $"{Subject} {Year_of_release}";
 		}
+		public override string ToFileString()
+		{
+			return base.ToFileString()+$",{Year_of_release},{Subject}";
+		}
+
 	}
 }
