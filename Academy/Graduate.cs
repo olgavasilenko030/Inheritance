@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 
 namespace Academy
 {
-	internal class Graduate:Human
+	internal class Graduate:Student
 	{
 		public int Year_of_release { get; set; }
-		public string Speciality { get; set; }
+
+		public string Subject { get; set; }
 		public Graduate(
-			string lastName, string firstName, int age,
-			int year_of_release, string speciality) : base(lastName, firstName, age) { 
-			this.Speciality = speciality;
+			string lastName, string firstName, int age, string speciality, string group, double rating, double attendance,
+			int year_of_release, string subject) : base(lastName, firstName, age, speciality,  group,  rating, attendance)
+		{ 
+			this.Subject = subject;
 			Year_of_release = year_of_release;
 
 			Console.WriteLine($"SConstructor:{GetHashCode()}");}
@@ -25,12 +27,12 @@ namespace Academy
 		public override void Print()
 		{
 			base.Print();
-			Console.WriteLine($"{Speciality}{Year_of_release}");
+			Console.WriteLine($"{Subject}{Year_of_release}");
 		}
 
 		public override string ToString()
 		{
-			return base.ToString() + $"{Speciality} {Year_of_release}";
+			return base.ToString() + $"{Subject} {Year_of_release}";
 		}
 	}
 }
