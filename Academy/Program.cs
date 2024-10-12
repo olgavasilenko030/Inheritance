@@ -34,7 +34,7 @@ namespace Academy
 			};
 
 			Streamer.Print(group);
-			Streamer.Save(group, "group.txt");
+			Streamer.Save(group, "group.csv");
 
 #if HOME_WORK
 			foreach (Human item in group)
