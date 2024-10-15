@@ -1,5 +1,7 @@
-﻿#define INTERITANCE_CHECK
+﻿//#define INTERITANCE_CHECK
 //#define HOME_WORK
+//#define SAVE_CHECK
+#define LOAD_CHECK
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,6 +27,7 @@ namespace Academy
 			//teacher.Print();
 			//Console.WriteLine(teacher);
 #endif
+#if SAVE_CHECK
 			Human[] group = new Human[]
 			{
 				new Student ("Pinkman", "Jessie", 25, "Chemistry", "WW20", 95, 96),
@@ -35,6 +38,7 @@ namespace Academy
 
 			Streamer.Print(group);
 			Streamer.Save(group, "group.csv");
+#endif
 
 #if HOME_WORK
 			foreach (Human item in group)
@@ -60,7 +64,13 @@ namespace Academy
 			sr.Close(); 
 #endif
 
+#if LOAD_CHECK
+
+			Human[] group = Streamer.Load("group.csv"); 
+			Streamer.Print(group);
+
+#endif
 		}
-		
+
 	}
 }

@@ -38,6 +38,12 @@ namespace Academy
 		{
 			return base.ToFileString()+$",{Year_of_release},{Subject}";
 		}
-
+		public override Human Init(string[] values)
+		{
+			base.Init(values);
+			Year_of_release = Convert.ToInt32(values[8]);
+			Subject = values[9];
+			return this;
+		}
 	}
 }
