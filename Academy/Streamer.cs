@@ -23,12 +23,13 @@ namespace Academy
 		internal static void Save(Human[] group, string filename)
 		{
 			StreamWriter sw = new StreamWriter(filename);
-			for (int i = 0; i < group.Length; i++)
+            Console.WriteLine("Sep=,");
+            for (int i = 0; i < group.Length; i++)
 			{
 				sw.WriteLine(group[i].ToFileString());
 			}
 			sw.Close();
-			Process.Start("notepad", filename);
+			Process.Start("excel", filename);
 		}
 		//CSV - Comma Separated Values (значения, разделенные запятой)
 	}
