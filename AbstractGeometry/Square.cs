@@ -4,33 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace AbstractGeometry
 {
-	internal class Square : Shape
+	internal class Square : Rectangle
 	{
-		double side;
+		/*double side;
 
 		public double Side
 		{
 			get => side;
 			set => side = SizeFilter(value);
-		}
+		}*/
 
 		public Square(double side, int startX, int startY,
 		   int lineWith, System.Drawing.Color color)
-		   : base(startX, startY, lineWith, color)
+		   : base(side, side, startX, startY, lineWith, color)
 		{
-			Side = side;
+			
 		}
 
-		public override double GetArea() => Math.Pow(Side,2);
-		public override double GetPerimeter() => 4 * Side;
+		/*public override double GetArea() => Math.Pow(side,2);
+		public override double GetPerimeter() => 4 * side;
 
 		public override void Draw(PaintEventArgs e)
 		{
-			throw new NotImplementedException();
-		}
+		}*/
 	}
 	
 }

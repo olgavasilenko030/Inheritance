@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace AbstractGeometry
 {
@@ -18,7 +19,8 @@ namespace AbstractGeometry
 			set => radius = SizeFilter(value);
 		}
 
-		public Circle (double radius, int startX, int startY,
+		public Circle (double radius, 
+			int startX, int startY,
 		   int lineWith, System.Drawing.Color color)
 		   : base(startX, startY, lineWith, color)
 		{
@@ -30,7 +32,14 @@ namespace AbstractGeometry
 
 		public override void Draw(PaintEventArgs e)
 		{
-			throw new NotImplementedException();
+			Pen pen = new Pen (Color, LineWidth);
+			e.Graphics.DrawEllipse(pen, StartX, StartY, 2 * (float)Radius, 2 * (float)Radius);
+		}
+		public override void Info(PaintEventArgs e)
+		{
+            Console.WriteLine(this.GetType());
+            Console.WriteLine($"Радиус круга:{Radius}");
+            base.Info(e);
 		}
 	}
 }
