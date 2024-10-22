@@ -26,7 +26,10 @@ namespace AbstractGeometry
 		{
 			Radius = radius;
 		}
-
+		double GetDiameter()
+		{
+			return 2 * radius;
+		}
 		public override double GetArea() => Math.PI * Math.Pow(Radius, 2);
 		public override double GetPerimeter() => 2 * Math.PI* Radius;
 
@@ -34,6 +37,13 @@ namespace AbstractGeometry
 		{
 			Pen pen = new Pen (Color, LineWidth);
 			e.Graphics.DrawEllipse(pen, StartX, StartY, 2 * (float)Radius, 2 * (float)Radius);
+			DrawDiameter(e);
+		}
+		void DrawDiameter(System.Windows.Forms.PaintEventArgs e)
+		{
+
+			int dx = (int)(radius * (1 - (1 / Math.Sqrt(2))));
+			e.Graphics.DrawLine(new Pen(Color, 2), StartX + dx, StartY + dx, StartX + (int)GetDiameter() - dx, StartY + (int)GetDiameter() - dx);
 		}
 		public override void Info(PaintEventArgs e)
 		{

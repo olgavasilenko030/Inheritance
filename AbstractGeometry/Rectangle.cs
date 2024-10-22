@@ -46,7 +46,8 @@ namespace AbstractGeometry
 		DrawDiagonal(e);
 		}
 		public void DrawDiagonal(PaintEventArgs e) {
-		e.Graphics.DrawLine(new Pen(Color,1), StartX, StartY, StartX+(int)Width,StartY+(int)Height);
+			
+			e.Graphics.DrawLine(new Pen(Color,1), StartX, StartY, StartX+(int)Width,StartY+(int)Height);
 			
 		}
 
