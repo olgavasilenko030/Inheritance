@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace AbstractGeometry
 {
-	internal class Triangle:Shape
+	abstract class Triangle:Shape
 	{
-		double a, b, c;
+		/*double a, b, c;
 		
 		public double A
 		{
@@ -44,6 +45,15 @@ namespace AbstractGeometry
 		public override void Draw(PaintEventArgs e)
 		{
 			throw new NotImplementedException();
+		}*/
+		public abstract double GetHeight();
+		public Triangle (int startX, int startY, int lineWidth, Color color)
+			: base (startX, startY, lineWidth, color) { }
+		public override void Info(PaintEventArgs e)
+		{
+            Console.WriteLine($"Высота треугольника: {GetHeight()}");
+            base.Info(e);
 		}
+
 	}
 }
